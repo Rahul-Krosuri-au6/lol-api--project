@@ -1,26 +1,12 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+var React = require('react');
+var config = require('./config/config');
+var LeagueSearch = require('./components/LeagueSearch');
+var GameList = require('./components/GameList');
+var ItemList = require('./components/ItemList');
+var FilterList = require('./components/FilterList');
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
 
-export default App;
+React.render(
+  <LeagueSearch />,
+  document.getElementById('content')
+);
