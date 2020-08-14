@@ -17,4 +17,4 @@ const ItemList = React.createClass({
   }
 });
 
-module.exports = ItemList;
+export default ItemList;

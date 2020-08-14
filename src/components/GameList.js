@@ -17,4 +17,4 @@ const GameList = React.createClass({
   }
 });
 
-module.exports = GameList;
+export default GameList
