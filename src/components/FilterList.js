@@ -1,7 +1,7 @@
-var React = require('react');
-var config = require('../config/config');
+import React from 'react'
+import config from '../config/config'
 
-var FilterList = React.createClass({
+const FilterList = React.createClass({
   render: function() {
 
     return (

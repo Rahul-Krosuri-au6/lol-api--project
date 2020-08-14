@@ -1,11 +1,10 @@
-var React = require('react');
-var config = require('../config/config');
+import React from 'react'
+import config from '../config/config'
+import Item from './Item'
 
-var Item = require('./Item');
-
-var ItemList = React.createClass({
+const ItemList = React.createClass({
   render: function  () {
-    var self = this;
+    const self = this;
     return (
       <div className="item-list">
         {this.props.items.map(function(item, index) {

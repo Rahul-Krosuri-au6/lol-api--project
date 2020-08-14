@@ -1,9 +1,8 @@
-var React = require('react');
-var config = require('../config/config');
+import React from 'react'
+import config from '../config/config'
+import ItemList from './ItemList'
 
-var ItemList = require('./ItemList');
-
-var Game = React.createClass({
+const Game = React.createClass({
   getInitialState: function  () {
     return {
       championId: this.props.game.championId,

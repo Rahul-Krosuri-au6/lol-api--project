@@ -1,11 +1,10 @@
-var React = require('react');
-var config = require('../config/config');
-var api_key = require('../config/api_key').key;
+import React from 'react'
+import config from '../config/config'
+import api_key from '../config/api_key'
+import FilterList from './FilterList'
+import GameList from './GameList'
 
-var FilterList = require('./FilterList');
-var GameList = require('./GameList');
-
-var LeagueSearch = React.createClass({
+const LeagueSearch = React.createClass({
   getInitialState: function  () {
     return {
       summonerId: '',
@@ -17,10 +16,10 @@ var LeagueSearch = React.createClass({
     }
   },
   render: function  () {
-    var items = this.state.itemData;
-    var item_choices = [{name: 'Any', id: 'any'}];
-    for(var key in items) {
-      var itemObj = {
+    let items = this.state.itemData;
+    let item_choices = [{name: 'Any', id: 'any'}];
+    for(let key in items) {
+      let itemObj = {
         name: items[key].name,
         id: items[key].id
       }
@@ -73,9 +72,9 @@ var LeagueSearch = React.createClass({
   },
   handleSubmit: function  (e) {
     e.preventDefault();
-    var summonerName = this.refs.summonerName.getDOMNode().value.trim();
-    var summonerId = this.state.summonerId;
-    var url = 'https://'+config.region+'.api.pvp.net/api/lol/'+config.region+'/'+config.version+'/'+config.path;
+    let summonerName = this.refs.summonerName.getDOMNode().value.trim();
+    let summonerId = this.state.summonerId;
+    let url = 'https://'+config.region+'.api.pvp.net/api/lol/'+config.region+'/'+config.version+'/'+config.path;
       $.ajax({
         url: url+summonerName,
         dataType: 'json',
@@ -83,19 +82,19 @@ var LeagueSearch = React.createClass({
           api_key: api_key,
         },
         success: function  (data) {
-          var self = this;
+          let self = this;
           summonerName = summonerName.toLowerCase().split(' ').join('');
-          var summonerId = data[summonerName].id;
-          var styledName = data[summonerName].name;
+          let summonerId = data[summonerName].id;
+          let styledName = data[summonerName].name;
           this.getGamesById(summonerId);
           this.setState({summonerId: summonerId, summonerName: styledName});
         }.bind(this)
       });
   },
   getGamesById: function  (summonerId) {
-    var gameVersion = 'v1.3';
-    var gamePath = 'game/by-summoner/'+summonerId+'/recent';
-    var url = `https://${config.region}.api.pvp.net/api/lol/${config.region}/${gameVersion}/${gamePath}`;
+    let gameVersion = 'v1.3';
+    let gamePath = 'game/by-summoner/'+summonerId+'/recent';
+    let url = `https://${config.region}.api.pvp.net/api/lol/${config.region}/${gameVersion}/${gamePath}`;
     $.ajax({
       url: url,
       dataType: 'json',
@@ -108,12 +107,12 @@ var LeagueSearch = React.createClass({
     });
   },
   filter: function  (e) {
-    var value = this.refs.filterList.getDOMNode().value;
-    var activeGames = [];
+    let value = this.refs.filterList.getDOMNode().value;
+    let activeGames = [];
     if(value == 'any') {
       this.getGamesById(this.state.summonerId);
     } else {
-    for(var key in this.state.games) {
+    for(let key in this.state.games) {
       if(value == this.state.games[key].stats.item0 || value == this.state.games[key].stats.item1 || value == this.state.games[key].stats.item2 || value == this.state.games[key].stats.item3 || value == this.state.games[key].stats.item4 || value == this.state.games[key].stats.item5 || value == this.state.games[key].stats.item6) {
         activeGames.push(this.state.games[key]);
       }

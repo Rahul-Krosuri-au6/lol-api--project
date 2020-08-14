@@ -1,9 +1,9 @@
-var React = require('react');
-var config = require('../config/config');
+import React from 'react'
+import config from '../config/config'
 
-var Item = React.createClass({
+const Item = React.createClass({
   render: function() {
-    var backgroundStyles = {
+    const backgroundStyles = {
       backgroundPosition: '-'+this.props.item.image.x+'px -'+ this.props.item.image.y+'px'
     };
     return (

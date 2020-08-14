@@ -1,11 +1,10 @@
-var React = require('react');
-var config = require('../config/config');
+import React from 'react'
+import config from '../config/config'
+import Game from './Game'
 
-var Game = require('./Game');
-
-var GameList = React.createClass({
+const GameList = React.createClass({
   render: function  () {
-    var self = this;
+    const self = this;
     return (
       <div className="game-list">
         {this.props.games.map(function(game, index) {

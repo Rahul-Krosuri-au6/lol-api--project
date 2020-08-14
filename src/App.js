@@ -1,12 +1,12 @@
-var React = require('react');
-var config = require('./config/config');
-var LeagueSearch = require('./components/LeagueSearch');
-var GameList = require('./components/GameList');
-var ItemList = require('./components/ItemList');
-var FilterList = require('./components/FilterList');
+import React from 'react'
+import ReactDom from 'react-dom'
+import LeagueSearch from './components/LeagueSearch'
+import GameList from './components/GameList'
+import ItemList from './components/ItemList'
+import FilterList from './components/FilterList'
 
 
-React.render(
+ReactDOM.render(
   <LeagueSearch />,
-  document.getElementById('content')
+  document.querySelector('#root')
 );
