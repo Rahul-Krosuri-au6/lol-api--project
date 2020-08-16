@@ -1,12 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import LeagueSearch from './components/LeagueSearch'
-import GameList from './components/GameList'
-import ItemList from './components/ItemList'
-import FilterList from './components/FilterList'
+import './index.css'
+import App from './App'
 
-
-ReactDOM.render(
-  <LeagueSearch />,
-  document.querySelector('#root')
-);
+ReactDOM.render(<App />, document.getElementById('root'))
