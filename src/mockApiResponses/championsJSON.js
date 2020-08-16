@@ -1,5 +1,5 @@
 // response from champListApi
-// const champListApi = `https://eun1.api.riotgames.com/lol/static-data/v3/champions?locale=en_US&dataById=false&api_key=${config.API_KEY}`
+// const champListApi = `https://euw1.api.riotgames.com/lol/static-data/v3/champions?locale=en_US&dataById=false&api_key=${config.API_KEY}`
 module.exports = {
   data: {
     Jax: {
